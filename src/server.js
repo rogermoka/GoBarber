@@ -16,7 +16,7 @@ class App {
     this.express.use(express.urlencoded({ extended: false }))
   }
 
-  view () {
+  views () {
     nunjucks.configure(path.resolve(__dirname, 'app', 'views'), {
       watch: this.isDev,
       express: this.express,
@@ -27,7 +27,7 @@ class App {
   }
 
   routes () {
-
+    this.express.use(require('./routes'))
   }
 }
 
